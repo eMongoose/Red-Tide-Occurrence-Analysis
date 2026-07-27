@@ -1,1 +1,2 @@
-data/outputs/mdp/*
+data/outputs/mdp/uncleaned/*
+data/outputs/mdp/cleaned/*
