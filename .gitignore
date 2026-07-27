@@ -1,2 +1,5 @@
 data/outputs/mdp/uncleaned/*
 data/outputs/mdp/cleaned/*
+
+!data/outputs/mdp/uncleaned/.gitkeep
+!data/outputs/mdp/cleaned/.gitkeep
