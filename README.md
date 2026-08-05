@@ -22,6 +22,7 @@ Convert any raw data xlsx files to csv, or if it is already csv, rename it to so
 python convert_data.py
 ```
 Clean the datasets, and get it ready for merging into a master dataset:
+
 *Note: This will take a moment as the datasets are relatively large.*
 ```bash
 python clean_data.py
