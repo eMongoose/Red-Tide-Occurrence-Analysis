@@ -18,6 +18,10 @@ pip install -r requirements.txt
 # After cloning the repository, run the following commands sequentially in the root of the directory:
 ```bash
 python convert_data.py
+```
+```bash
 python clean_data.py
+```
+```bash
 python merge_data.py
 ```
