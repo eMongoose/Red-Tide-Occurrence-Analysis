@@ -15,7 +15,8 @@ Install dependencies:
 pip install -r requirements.txt
 ```
 
-# After cloning the repository, run the following commands sequentially in the root of the directory:
+# Usage
+## After cloning the repository, run the following commands sequentially in the root of the directory:
 Convert any raw data xlsx files to csv, or if it is already csv, rename it to something appropriate:
 ```bash
 python convert_data.py
