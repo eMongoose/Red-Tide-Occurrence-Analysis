@@ -3,14 +3,28 @@
 TODO: Add project description
 
 # Directory Structure
+```
+├── data/
+│   └── cleaned/
+│   └── outputs/
+│   └── raw/
+├── src/
+│   └── clean_data.py
+│   └── convert_data.py
+│   └── helper_functions.py
+│   └── merge_data.py
+│   └── merge_datasets.py
+│   └── paths.py
+│   └── regex.py
+├── main.py
+└── requirements.txt
 
-TODO: Add directory structure
-
+```
 # Installation
 
-This project assumes that the user already has python and is able to do pip installations.
+This project assumes that the user already has the python interpreter and is able to do pip installations.
 
-Install dependencies:
+Install required dependencies:
 ```bash
 pip install -r requirements.txt
 ```
