@@ -15,7 +15,7 @@ Install dependencies:
 pip install -r requirements.txt
 ```
 
-# Usage
+# Convert, clean, and merge datasets
 ## After cloning the repository, run the following commands sequentially in the root of the directory:
 
 *Note: This will take a moment as the datasets are relatively large.*
@@ -34,3 +34,5 @@ Merge the data together to be used in the program:
 ```bash
 python merge_data.py
 ```
+
+Once you have run these three commands, ensure there are seven csv files in the ``data/cleaned/`` directory.
