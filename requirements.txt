@@ -1,2 +1,5 @@
 xlrd
 openpyxl
+scikit-learn
+pandas
+numpy
