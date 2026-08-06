@@ -61,7 +61,7 @@ Once you have run these commands, ensure there are csv files in the ``data/clean
 # Data explanation
 This is an explanation of the variables found in ``merged.csv``. Variable names will be displayed similar to as they are after the cleaning done in ``main.py``. 
 
-## "Shared" variables:
+### "Shared" variables:
 These variables are in all of the datasets listed below, with noted exceptions. 
 - ``date``: The date of recording. Identical through all the dataset. 
 - ``station``: The station in charge of recording the data. Non-identical through all the datasets (varies due to different latitudes and longitudes).
