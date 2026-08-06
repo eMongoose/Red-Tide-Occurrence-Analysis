@@ -82,6 +82,15 @@ def main():
     secchi['date'] = pd.to_datetime(secchi['date'], errors='coerce')
     
     
+    # Convert depths to floats
+    o_fldc_pm['depth'] = pd.to_numeric(o_fldc_pm['depth'], errors='coerce')
+    nutrients['depth'] = pd.to_numeric(nutrients['depth'], errors='coerce')
+
+
+    # Cap depth levels
+    o_fldc_pm = o_fldc_pm[o_fldc_pm["depth"].between(0.5, 1.5)].copy()
+    nutrients = nutrients[nutrients["depth"].between(0, 5)].copy()
+    
     # print(
     #     'chlorophyll:\n', chlorophyll.dtypes, '\n', 
     #     'hab_merged:\n', hab_merged.dtypes, '\n',
@@ -89,6 +98,8 @@ def main():
     #     'o_fldc_pm:\n', o_fldc_pm.dtypes, '\n',
     #     'secchi:\n', secchi.dtypes, '\n',
     # )
+    
+
     
     
     # Output to CSV file
@@ -115,7 +126,7 @@ def main():
     # print('secchi:\n',secchi)
     
     
-    print('Cleaning data completed. Please check data/cleaned/ to ensure the data has successfully been cleaned.')
+    print('Cleaning data completed. Please check data/cleaned/ for the presence of CSV files to ensure the data has successfully been cleaned.')
     
 
 if __name__ == '__main__':

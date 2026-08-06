@@ -11,6 +11,7 @@ TODO: Add project description
 │       └── ⋮
 ├── src/
 │   └── clean_data.py           # Clean the datasets prior to merging together
+│   └── clean_merged_data.py    # Clean the merged dataset prior to data analysis
 │   └── convert_data.py         # Convert xlsx files to csv, or rename csv files 
 │   └── helper_functions.py     # Helper functions for printing out helpful information
 │   └── merge_data.py           # Call merge_datasets to merge datasets together
@@ -30,10 +31,11 @@ Install required dependencies:
 pip install -r requirements.txt
 ```
 
-# Convert, clean, and merge datasets
-## After cloning the repository, run the following commands sequentially in the root of the directory:
+# Convert, clean, merge datasets, then clean again
+This project assumes that the user has already cloned the repository and has pathed to the root of the project.
+## Run the following commands sequentially:
 
-*Note: Certain datasets are larger than others, so the following commands will take a moment. Thank you for your patience.*
+*Note: Some datasets are large, so the following commands will take a moment. Thank you for your patience.*
 
 Depending on how you installed python, ``python`` or ``python3`` are interchangeable.
 
@@ -49,23 +51,27 @@ Merge the data together to be used in the program:
 ```bash
 python src/merge_data.py
 ```
+Finally, clean the merged data for analysis:
+```bash
+python src/clean_merged_data.py
+```
 
-Once you have run these three commands, ensure there are csv files in the ``data/cleaned/`` directory. However, we will be working with the ``data/cleaned/merged.csv`` dataset.
+Once you have run these commands, ensure there are csv files in the ``data/cleaned/`` directory. ``merged.csv`` and ``merged_cleaned.csv`` are the most important.
 
 # Data explanation
-This is an explanation of the variables found in merged.csv. Variable names will displayed as they are after the cleaning that is done in ``main.py``. 
+This is an explanation of the variables found in ``merged.csv``. Variable names will displayed similar to as they are after the cleaning done in ``main.py``. 
 ## "Shared" variables:
-- ``date``(UTC): The date of recording. Identical through all the dataset. 
+- ``date`` (UTC): The date of recording. Identical through all the dataset. 
 - ``station``: The station in charge of recording the data. Non-identical through all the datasets (varies due to different latitudes and longitudes).
-- ``lat`` (latitude)(deg): The y position of the recorded data.
-- ``lon`` (longitude)(deg): The x position of the recorded data. 
+- ``lat`` (latitude) (deg): The y position of the recorded data.
+- ``lon`` (longitude) (deg): The x position of the recorded data. 
 - ``d_km``: The calculated distance between the data and the data being merged.
 
-*Note: ``d_km`` is not present in hab_events.csv and hab_occurrences.csv because they do not merge on similar locations, thus not requiring the ``merge_datasets.py`` function.*
+*Note: ``d_km`` is not present in hab_events.csv and hab_occurrences.csv because they do not merge on similar locations, thus not requiring the ``merge_datasets.py`` function which returns the variable. This is not too important because ``d_km`` is irrelevant to our objective.*
 
 ### From the hab_events.csv dataset:
 - ``eventID`` : The station and date of the recorded data. It is used to merge onto ``hab_occurrences.csv`` dataset.
-- ``max_depth``(m): The maximum depth.
+- ``max_depth`` (m): The maximum depth.
 
 ### From the hab_occurrences.csv dataset:
 - ``ScientificName``: The name of the observed plankton.
@@ -73,27 +79,30 @@ This is an explanation of the variables found in merged.csv. Variable names will
 - ``occurrenceStatus``: The absence/presence of the algae booms.
 
 ### From the chlorophyll.csv dataset:
-- ``chlorophyll``(µg/L): The amount of chlorophyll present.
-- ``phaeopigment``(µg/L): The amount of phaeopigment present.
+- ``chlorophyll`` (µg/L): The amount of chlorophyll present.
+- ``phaeopigment`` (µg/L): The amount of phaeopigment present.
 
 ### From the nutrients.csv dataset:
-- ``depth``(m): The depth of recording.
-- ``nitrate``(μM): The amount of nitrate present.
-- ``phosphate``(μM): The amount of phosphate present.
-- ``silicone``(μM): The amount of silicon present.
+- ``depth`` (m): The depth of recording.
+- ``nitrate`` (μM): The amount of nitrate present.
+- ``phosphate`` (μM): The amount of phosphate present.
+- ``silicon`` (μM): The amount of silicon present.
 
 ### From the o_fldc_pm.csv dataset:
-- ``pressure``(dBar): The pressure of water (in decibars; 1 dbar ≈ 1 meter)
-- ``depth``(m): The depth of the recording.
-- ``temperature``(°C): The temperature of the water.
-- ``conductivity``(S/m): The conductivity of the water.
+- ``pressure`` (dBar): The pressure of water (1 dbar ≈ 1 m)
+- ``depth`` (m): The depth of the recording.
+- ``temp`` (°C): The temperature of the water.
+- ``conductivity`` (S/m): The conductivity of the water.
 - ``salinity`` (TEOS-10 g/kg): The salinity levels of the water.
-- ``oxygen_sat``(%): The oxygen saturation of the water.
-- ``oxygen_con``(μM): The oxygen concentration of the water.
-- ``chlorophyll``(mg/mg^3): The 
+- ``oxygen_sat`` (%): The oxygen saturation of the water.
+- ``oxygen_con`` (μM): The oxygen concentration of the water.
+- ``chlorophyll`` (mg/mg^3): The amount of chlorophyll present.
 
 ### From the secchi.csv dataset:
-- ``avg_depth``:
+This dataset calculates how far light is able to penetrate the water. This is
+- ``avg_depth``: The average between where it was lowered to a point where it completely vanishes, and where it was raised until it was visible again.
+
+Many variables were dropped during the process of cleaning, but they can be further explored in ``data/outputs/``.
 
 
 # References and Acknowledgements
