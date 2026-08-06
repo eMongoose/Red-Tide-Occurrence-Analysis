@@ -2,9 +2,8 @@ import pandas as pd
 import numpy as np
 
 # Local imports 
-from src.paths import *
-from src.regex import hab_occurrencesStationParser, hab_occurrencesDateParser, o_fldc_pmDateParser
-from src.merge_datasets import merge_datasets
+from paths import *
+from regex import hab_occurrencesStationParser, hab_occurrencesDateParser, o_fldc_pmDateParser
 
 
 # Define dictionary of dataframe:files
@@ -114,6 +113,10 @@ def main():
     # print('nutrients:\n',nutrients)
     # print('oxygen and fluorine-derived chlorophyll:\n',o_fldc_pm)
     # print('secchi:\n',secchi)
+    
+    
+    print('Cleaning data completed. Please check data/cleaned/ to ensure the data has successfully been cleaned.')
+    
 
 if __name__ == '__main__':
     main()

@@ -1,10 +1,9 @@
 import pandas as pd
-import numpy as np
+
 
 # Local imports 
-from src.paths import *
-from src.regex import hab_occurrencesStationParser, hab_occurrencesDateParser, o_fldc_pmDateParser
-from src.merge_datasets import merge_datasets
+from paths import *
+from merge_datasets import merge_datasets
 
 
 datasets = {
@@ -27,6 +26,7 @@ def main():
         for dataframe, filename in datasets.items() 
     }
     
+    
     # Rename dictionary ones to avoid constantly calling datasets[] - probably inefficient but saves time when typing...
     chlorophyll = dataframe['chlorophyll']
     hab_events = dataframe['hab_events']
@@ -35,32 +35,41 @@ def main():
     o_fldc_pm = dataframe['o_fldc_pm']
     secchi = dataframe['secchi']
     
+    
     d_max = 5
     
     
     # Merge hab_events and hab_occurrences
+    print('Merging harmful algae bloom events with harmful algae bloom occurrences. Please wait a moment...')
     merged = hab_events.merge(hab_occurrences, on='eventID', how='outer')
-    print('events and occurrences: ', merged.shape)
+    # print('events and occurrences: ', merged.shape)
+
 
     # Merge with chlorophyll, with a max distance of 5 km
+    print('Merging in chlorophyll data. Please wait a moment...')
     merged = merge_datasets(merged, chlorophyll, 'chl_', d_max)
-    print('chlorophyll: ', merged.shape)
+    # print('chlorophyll: ', merged.shape)
 
     # Merge nutrients
+    print('Merging in nutrients data. Please wait a moment...')
     merged = merge_datasets(merged, nutrients, 'nut_', d_max)
-    print('nutrients: ', merged.shape)
+    # print('nutrients: ', merged.shape)
     
     # Merge o_fldc_pm
+    print('Merging in oxygen data. Please wait a moment...')
     merged = merge_datasets(merged, o_fldc_pm, 'o_', d_max)
-    print('o_fldc_pm: ', merged.shape)
+    # print('o_fldc_pm: ', merged.shape)
     
     # Merge secchi
+    print('Merging in secchi data. Please wait a moment...')
     merged = merge_datasets(merged, secchi, 'secchi_', d_max)
-    print('secchi: ', merged.shape)
+    # print('secchi: ', merged.shape)
+    
     
     # Output to CSV file
     merged.to_csv(CLEAN_PATH / 'merged.csv')
     
+    print('Merging complete!')
     
 if __name__ == '__main__':
     main()

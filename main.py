@@ -4,14 +4,15 @@ import numpy as np
 # Local imports 
 from src.paths import *
 from src.regex import hab_occurrencesStationParser, hab_occurrencesDateParser, o_fldc_pmDateParser
-from src.merge_datasets import merge_datasets
-from src.helper_functions import NaNDetector
 
 
 
 def main():
-    pass                  
-
+    # Call the 
+    df = pd.read_csv(CLEAN_PATH / 'merged.csv')
+     
+    # Clean the data 
+     
         
 
 if __name__ == '__main__':

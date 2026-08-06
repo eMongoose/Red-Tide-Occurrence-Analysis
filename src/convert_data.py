@@ -1,5 +1,5 @@
 import pandas as pd
-from src.paths import *
+from paths import *
 
 
 xlsx_files = {
@@ -45,6 +45,7 @@ def fileConverter():
 
 def main():
     fileConverter()
+    print('Data conversion has completed.')
     
 
 if __name__ == '__main__':
