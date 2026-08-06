@@ -26,7 +26,7 @@ TODO: Add project description
 
 This project assumes that the user already has a python interpreter and is able to do pip installations.
 
-Install required dependencies:
+## Install required dependencies:
 ```bash
 pip install -r requirements.txt
 ```
@@ -47,7 +47,7 @@ Clean the datasets, and get it ready for merging into a master dataset:
 ```bash
 python src/clean_data.py
 ```
-Merge the data together to be used in the program:
+Merge the data together (by date and proximity) into a master set:
 ```bash
 python src/merge_data.py
 ```
@@ -56,12 +56,14 @@ Finally, clean the merged data for analysis:
 python src/clean_merged_data.py
 ```
 
-Once you have run these commands, ensure there are csv files in the ``data/cleaned/`` directory. ``merged.csv`` and ``merged_cleaned.csv`` are the most important.
+Once you have run these commands, ensure there are csv files in the ``data/cleaned/`` directory. ``merged.csv`` and ``merged_cleaned.csv`` are the most relevant.
 
 # Data explanation
-This is an explanation of the variables found in ``merged.csv``. Variable names will displayed similar to as they are after the cleaning done in ``main.py``. 
+This is an explanation of the variables found in ``merged.csv``. Variable names will be displayed similar to as they are after the cleaning done in ``main.py``. 
+
 ## "Shared" variables:
-- ``date`` (UTC): The date of recording. Identical through all the dataset. 
+These variables are in all of the datasets listed below, with noted exceptions. 
+- ``date``: The date of recording. Identical through all the dataset. 
 - ``station``: The station in charge of recording the data. Non-identical through all the datasets (varies due to different latitudes and longitudes).
 - ``lat`` (latitude) (deg): The y position of the recorded data.
 - ``lon`` (longitude) (deg): The x position of the recorded data. 
