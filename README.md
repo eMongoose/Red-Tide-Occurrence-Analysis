@@ -52,46 +52,47 @@ python src/merge_data.py
 
 Once you have run these three commands, ensure there are csv files in the ``data/cleaned/`` directory. However, we will be working with the ``data/cleaned/merged.csv`` dataset.
 
-# Data variables (merged.csv)
+# Data explanation
+This is an explanation of the variables found in merged.csv. Variable names will displayed as they are after the cleaning that is done in ``main.py``. 
 ## "Shared" variables:
-- ``date``: Identical through all the datasets
-- ``station``: Non-identical through all the datasets (Will vary due to differing latitudes and longitudes)
-- ``lat`` (latitude): The y position of the recorded data
-- ``lon`` (longitude): The x position of the recorded data 
-- ``d_km``: Calculated distance between the data and the data being merged
+- ``date``(UTC): The date of recording. Identical through all the dataset. 
+- ``station``: The station in charge of recording the data. Non-identical through all the datasets (varies due to different latitudes and longitudes).
+- ``lat`` (latitude)(deg): The y position of the recorded data.
+- ``lon`` (longitude)(deg): The x position of the recorded data. 
+- ``d_km``: The calculated distance between the data and the data being merged.
 
-*Note: ``d_km`` is not present in hab_events.csv and hab_occurrences.csv because they do not merge on similar lat/lons, thus not requiring the ``merge_datasets.py`` function.*
+*Note: ``d_km`` is not present in hab_events.csv and hab_occurrences.csv because they do not merge on similar locations, thus not requiring the ``merge_datasets.py`` function.*
 
 ### From the hab_events.csv dataset:
-- ``eventID`` : Station and date, used to merge onto hab_occurrences.csv dataset
-- ``max_depth``: Maximum depth in meters
+- ``eventID`` : The station and date of the recorded data. It is used to merge onto ``hab_occurrences.csv`` dataset.
+- ``max_depth``(m): The maximum depth.
 
 ### From the hab_occurrences.csv dataset:
-- ``ScientificName``: The name of the observed plankton
-- ``organismQuantity``: The quantity of the observed plankton
-- ``occurrenceStatus``: The absence/presence of the algae booms
+- ``ScientificName``: The name of the observed plankton.
+- ``organismQuantity``: The quantity of the observed plankton.
+- ``occurrenceStatus``: The absence/presence of the algae booms.
 
-## From the chlorophyll.csv dataset:
-- ``chlorophyll``:
-- ``phaeopigment``:
+### From the chlorophyll.csv dataset:
+- ``chlorophyll``(µg/L): The amount of chlorophyll present.
+- ``phaeopigment``(µg/L): The amount of phaeopigment present.
 
-## From the nutrients.csv dataset:
-- ``depth``:
-- ``nitrate``:
-- ``phosphate``:
-- ``silicone``:
+### From the nutrients.csv dataset:
+- ``depth``(m): The depth of recording.
+- ``nitrate``(μM): The amount of nitrate present.
+- ``phosphate``(μM): The amount of phosphate present.
+- ``silicone``(μM): The amount of silicon present.
 
-## From the o_fldc_pm.csv dataset:
-- ``pressure``:
-- ``depth``:
-- ``temperature``:
-- ``conductivity``:
-- ``salinity``:
-- ``oxygen_sat``:
-- ``oxygen_con``:
-- ``chlorophyll``:
+### From the o_fldc_pm.csv dataset:
+- ``pressure``(dBar): The pressure of water (in decibars; 1 dbar ≈ 1 meter)
+- ``depth``(m): The depth of the recording.
+- ``temperature``(°C): The temperature of the water.
+- ``conductivity``(S/m): The conductivity of the water.
+- ``salinity`` (TEOS-10 g/kg): The salinity levels of the water.
+- ``oxygen_sat``(%): The oxygen saturation of the water.
+- ``oxygen_con``(μM): The oxygen concentration of the water.
+- ``chlorophyll``(mg/mg^3): The 
 
-## From the secchi.csv dataset:
+### From the secchi.csv dataset:
 - ``avg_depth``:
 
 
