@@ -1,5 +1,5 @@
 import pandas as pd
-from paths import *
+from src.paths import *
 
 
 xlsx_files = {
