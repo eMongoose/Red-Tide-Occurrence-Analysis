@@ -18,7 +18,7 @@ TODO: Add project description
 │   └── merge_datasets.py       # Ball tree with Haversine function to merge datasets on nearby data
 │   └── paths.py                # Paths for calling/saving xlsx/csv files 
 │   └── regex.py                # Parsing functions for data cleaning
-├── main.py
+├── main.ipynb
 └── requirements.txt            # All pip installation requirements
 
 ```
