@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-from src.paths import *
+from paths import *
 
 
 def main():
@@ -19,27 +19,47 @@ def main():
         'secchi_date','secchi_station','secchi_lat','secchi_lon','secchi_d_km'
     })
     
+    df = df.dropna()
+    
     # Rename the data
-    df = df.rename(columns={'eventDate':'date',
-                            # 'chl_chlorophyll':'chlorophyll',
-                            'chl_phaeopigment' : 'phaeopigment',
-                            # 'nut_depth' : ' depth',
-                            'nut_nitrate' : 'nitrate', 
-                            'nut_phosphate': 'phosphate',
-                            'nut_silicone' : 'silicon',
-                            'o_pressure' : ' pressure',
-                            # 'o_depth' : 'depth',
-                            'o_temperature' : 'temp',
-                            'o_conductivity' : 'conductivity',
-                            'o_salinity' : 'salinity',
-                            'o_oxygen_sat' : 'oxygen_sat',
-                            'o_oxygen_con' : 'oxygen_con',
-                            # 'o_chlorophyll' : 'chlorophyll',
-                            'secchi_avg_depth' : 'avg_depth'
-                            })
+    df = df.rename(columns={
+        'eventDate':'date',
+        'chl_chlorophyll':'chlorophyll',
+        'chl_phaeopigment' : 'phaeopigment',
+        # 'nut_depth' : ' depth',
+        'nut_nitrate' : 'nitrate', 
+        'nut_phosphate': 'phosphate',
+        'nut_silicone' : 'silicon',
+        'o_pressure' : 'pressure',
+        # 'o_depth' : 'depth',
+        'o_temperature' : 'temp',
+        'o_conductivity' : 'conductivity',
+        'o_salinity' : 'salinity',
+        'o_oxygen_sat' : 'oxygen_sat',
+        'o_oxygen_con' : 'oxygen_con',
+        # 'o_chlorophyll' : 'chlorophyll',
+        'secchi_avg_depth' : 'avg_depth'
+    })
         
+    # The wall of object -> float conversions
+    df['nitrate'] = pd.to_numeric(df['nitrate'], errors='coerce')
+    df['phosphate'] = pd.to_numeric(df['phosphate'], errors='coerce')
+    df['silicon'] = pd.to_numeric(df['silicon'], errors='coerce')
+    df['temp'] = pd.to_numeric(df['temp'], errors='coerce')
+    df['conductivity'] = pd.to_numeric(df['conductivity'], errors='coerce')
+    df['salinity'] = pd.to_numeric(df['salinity'], errors='coerce')
+    df['oxygen_sat'] = pd.to_numeric(df['oxygen_sat'], errors='coerce')
+    df['oxygen_con'] = pd.to_numeric(df['oxygen_con'], errors='coerce')
+    df['avg_depth'] = pd.to_numeric(df['avg_depth'], errors='coerce')
+    
+    
+    # print(df.dtypes)
+    
     
     df.to_csv(CLEAN_PATH / 'merged_cleaned.csv')
+    
+    
+    print('Completed cleaning the merged data.')
      
 
 if __name__ == '__main__':

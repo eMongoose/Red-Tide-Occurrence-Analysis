@@ -98,9 +98,7 @@ def main():
     #     'o_fldc_pm:\n', o_fldc_pm.dtypes, '\n',
     #     'secchi:\n', secchi.dtypes, '\n',
     # )
-    
 
-    
     
     # Output to CSV file
     cleaned_datasets = {
@@ -116,15 +114,6 @@ def main():
     for filename, dataframe in cleaned_datasets.items():
         dataframe.to_csv(CLEAN_PATH / filename, index=False)    
         
-        
-    # Print outputs
-    # print('HA events:\n',hab_events)
-    # print('HA occurrences:\n:',hab_occurrences)
-    # print('chloropyll:\n',chloropyll)
-    # print('nutrients:\n',nutrients)
-    # print('oxygen and fluorine-derived chlorophyll:\n',o_fldc_pm)
-    # print('secchi:\n',secchi)
-    
     
     print('Cleaning data completed. Please check data/cleaned/ for the presence of CSV files to ensure the data has successfully been cleaned.')
     

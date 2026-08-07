@@ -22,6 +22,9 @@ TODO: Add project description
 └── requirements.txt            # All pip installation requirements
 
 ```
+
+When cloning the repository, you can expect the directories ``data/cleaned/`` and ``data/outputs`` to be empty, but the directory ``data/raw/`` is populated with the original data.
+
 # Installation
 
 This project assumes that the user already has a python interpreter and is able to do pip installations.
