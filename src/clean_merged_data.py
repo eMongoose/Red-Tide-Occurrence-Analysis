@@ -29,7 +29,7 @@ def main():
         # 'nut_depth' : ' depth',
         'nut_nitrate' : 'nitrate', 
         'nut_phosphate': 'phosphate',
-        'nut_silicone' : 'silicon',
+        'nut_silicon' : 'silicon',
         'o_pressure' : 'pressure',
         # 'o_depth' : 'depth',
         'o_temperature' : 'temp',

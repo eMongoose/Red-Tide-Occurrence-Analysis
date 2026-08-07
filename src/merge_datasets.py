@@ -74,6 +74,7 @@ def merge_datasets(df1, df2, prefix, d_max=5):
         
         # Keep only matches within d_max
         within_distance = matched['d_km'] <= d_max
+        
         new_df = new_df.loc[within_distance].reset_index(drop=True)
         matched = matched.loc[within_distance].reset_index(drop=True)
 

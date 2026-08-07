@@ -60,7 +60,7 @@ def main():
     # Rename columns
     chlorophyll = chlorophyll.rename(columns={'Date':'date','Station Name':'station','lat_deg':'lat', 'long_deg':'lon','chl (µg/L)':'chlorophyll','phaeo (µg/L)':'phaeopigment'})
     hab_events = hab_events.rename(columns={'decimalLatitude':'lat', 'decimalLongitude':'lon','maximumDepthInMeters':'max_depth'})
-    nutrients = nutrients.rename(columns={'latitude':'lat', 'longitude':'lon','no3':'nitrate', 'po4':'phosphate', 'si':'silicone','Station':'station'})
+    nutrients = nutrients.rename(columns={'latitude':'lat', 'longitude':'lon','no3':'nitrate', 'po4':'phosphate', 'si':'silicon','Station':'station'})
     o_fldc_pm = o_fldc_pm.rename(columns={'latitude':'lat', 'longitude':'lon','o2SAT':'oxygen_sat','o2uM':'oxygen_con','chl':'chlorophyll'})
     secchi = secchi.rename(columns={'Date of Sample':'date','Latitude.(dd)':'lat','Longitude.(dd)':'lon','Station Name':'station', 'Avg Depth (m)':'avg_depth'})
 
