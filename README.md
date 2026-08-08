@@ -1,6 +1,8 @@
-# Project Title
+# Environmental Factors Associated with Harmful Algal Bloom Occurrence in the Strait of Georgia
 
-TODO: Add project description
+Harmful algal blooms (HABs) occur when populations of microscopic algae in the water grow out of control and produce toxins that negatively impact the environment. The overgrowth results in not only a distinct red hue in the water, but also deprived oxygen levels, killing fish and other marine life in the area, as well as a deterioration of water quality. Additionally, filter-feeding shellfish feed on the algae and accumulate concentrated toxins in their tissues, becoming particularly dangerous to human health when consumed. The development of these blooms are influenced by environmental factors such as temperature, nutrient levels in the water, salinity, oxygen conditions, and the depth of the water. However, it is unclear if these conditions are associated with one another or act independently, thus motivating a statistical analysis. 
+
+Identifying relationships could improve our understanding of how these blooms occur, and provide information meaningful for monitoring and assessing these risks. The goal of this project is to determine which environmental conditions are most strongly associated with the presence of HABs in the Strait of Georgia. More specifically, the analysis compares environmental factors between observations of an occurrence and the absence of one and evaluates their independency from other factors during occurrences.
 
 # Directory Structure
 ```
@@ -109,7 +111,17 @@ This dataset calculates how far light is able to penetrate the water. This is
 
 Many variables were dropped during the process of cleaning, but they can be further explored in ``data/outputs/``.
 
+# Usage
+The data analysis is developed in ``main.ipynb`` file and should be run using the appropriate tools. Should you wish to replicate the outputs, run it in VScode.
 
 # References and Acknowledgements
 
-TODO: Add any references, data acquisition, etc.
+[Datasets](https://soggy2.zoology.ubc.ca/geonetwork/srv/eng/catalog.search#/metadata/ab455d82-59c5-4d8a-9c9f-bbc9636144b5)
+
+[VIF reference](https://stackoverflow.com/questions/42658379/variance-inflation-factor-in-python)
+
+[Brier Loss Score](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.brier_score_loss.html)
+
+[Calibration Curve](https://scikit-learn.org/stable/modules/generated/sklearn.calibration.calibration_curve.html)
+
+[Logit](https://www.codecademy.com/resources/docs/python/statsmodels/logit)
